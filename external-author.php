@@ -8,3 +8,9 @@ Author: Joel Krebs
 Author URI: http://www.aleaiactaest.ch
 License: GPL2
 */
+
+include_once dirname( __FILE__ ) . '/class-external-author.php';
+
+if ( class_exists( 'External_Author' ) && is_admin() ) {
+	new External_Author();
+}

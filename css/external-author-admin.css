@@ -1,0 +1,12 @@
+#external-author-meta-box label {
+    display: inline-block;
+    min-width: 75px;
+}
+
+#external-author-meta-box input.text {
+    min-width: 165px;
+}
+
+.external-author {
+    margin-bottom: 15px;
+}
