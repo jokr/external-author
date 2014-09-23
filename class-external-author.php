@@ -1,17 +1,16 @@
 <?php
 
-class External_Author
-{
+class External_Author {
 	public function __construct() {
-		add_action( 'add_meta_boxes_post', array($this, 'add_custom_meta_box') );
-		add_action( 'save_post', array($this, 'save') );
+		add_action( 'add_meta_boxes_post', array( $this, 'add_custom_meta_box' ) );
+		add_action( 'save_post', array( $this, 'save' ) );
 	}
 
 	public function add_custom_meta_box() {
 		add_meta_box(
 			'external-author-meta-box',
 			__( 'External Author' ),
-			array($this, 'render_meta_box'),
+			array( $this, 'render_meta_box' ),
 			'post',
 			'side'
 		);
@@ -21,7 +20,7 @@ class External_Author
 		wp_register_style( 'external_author_admin', plugins_url( '/css/external-author-admin.css', __FILE__ ) );
 		wp_enqueue_style( 'external_author_admin' );
 
-		wp_register_script( 'external_author', plugins_url( '/js/external-author.js', __FILE__ ), array('jquery') );
+		wp_register_script( 'external_author', plugins_url( '/js/external-author.js', __FILE__ ), array( 'jquery' ) );
 		wp_enqueue_script( 'external_author' );
 
 		wp_nonce_field( 'external_author_meta_box', 'external_author_meta_box_nonce' );
@@ -36,14 +35,14 @@ class External_Author
 			_e( 'Full name' );
 			echo '</label>';
 			echo '<input class="text" type="text" name="external-authors[' . $index . '][name]" value="'
-				. esc_attr( $author['name'] ) . '" size="25" />';
+			     . esc_attr( $author['name'] ) . '" size="25" />';
 			echo '</div>';
 
 			echo '<div class="external-author-dci"><label for="external-authors[' . $index . '][dci]">';
 			_e( 'DCI Number ' );
 			echo '</label>';
 			echo '<input class="text" type="number" min="0" name="external-authors[' . $index . '][dci]" value="' .
-				esc_attr( $author['dci'] ) . '" size="25" />';
+			     esc_attr( $author['dci'] ) . '" size="25" />';
 			echo '</div>';
 
 			echo '</div>';
@@ -54,28 +53,36 @@ class External_Author
 	}
 
 	public function save( $post_id ) {
-		if ( ! isset($_POST['external_author_meta_box_nonce']) )
+		if ( ! isset( $_POST['external_author_meta_box_nonce'] ) ) {
 			return $post_id;
+		}
 
-		if ( ! wp_verify_nonce( $_POST['external_author_meta_box_nonce'], 'external_author_meta_box' ) )
+		if ( ! wp_verify_nonce( $_POST['external_author_meta_box_nonce'], 'external_author_meta_box' ) ) {
 			return $post_id;
+		}
 
-		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
+		}
 
-		if ( ! current_user_can( 'edit_post', $post_id ) )
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return $post_id;
+		}
 
+		if ( ! isset( $_POST['external-authors'] ) ) {
+			return $post_id;
+		}
 		$authors = $_POST['external-authors'];
 		if ( ! is_array( $authors ) ) {
 			$authors[0] = $authors;
 		}
-		foreach ( $authors as $index=>$author ) {
+
+		foreach ( $authors as $index => $author ) {
 			foreach ( $author as $key => $value ) {
-				$author[$key] = sanitize_text_field( $author[$key] );
+				$author[ $key ] = sanitize_text_field( $author[ $key ] );
 			}
-			if ( empty($author['name']) ) {
-				unset($authors[$index]);
+			if ( empty( $author['name'] ) ) {
+				unset( $authors[ $index ] );
 			}
 		}
 
