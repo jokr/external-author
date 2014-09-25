@@ -4,9 +4,23 @@
 }
 
 #external-author-meta-box input.text {
-    min-width: 165px;
+    width: 125px;
 }
 
 .external-author {
     margin-bottom: 15px;
+}
+
+.button.remove-author {
+    margin-left: 10px;
+}
+
+.no-author-field{
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #d3d3d3;
+}
+
+#no-author {
+    margin-right: 10px;
 }

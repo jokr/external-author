@@ -3,7 +3,7 @@
 Plugin Name: External Author
 Plugin URI: http://www.aleaiactaest.ch
 Description: Allows publishing of posts with an author possible who does not have a wordpress account.
-Version: 0.1
+Version: 0.2
 Author: Joel Krebs
 Author URI: http://www.aleaiactaest.ch
 License: GPL2
@@ -11,6 +11,6 @@ License: GPL2
 
 include_once dirname( __FILE__ ) . '/class-external-author.php';
 
-if ( class_exists( 'External_Author' ) && is_admin() ) {
+if ( class_exists( 'External_Author' ) ) {
 	new External_Author();
 }
