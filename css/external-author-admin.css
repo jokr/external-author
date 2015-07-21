@@ -1,10 +1,16 @@
 #external-author-meta-box label {
     display: inline-block;
-    min-width: 75px;
+    min-width: 85px;
+    line-height: 25px;
 }
 
 #external-author-meta-box input.text {
     width: 125px;
+}
+
+#external-author-meta-box input.featured {
+    margin: 5px 43px 0 0;
+    float: right;
 }
 
 .external-author {
