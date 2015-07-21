@@ -37,15 +37,15 @@
     }
 
     checkbox.change(function () {
-      if(jQuery(this).is(':checked')) {
+      if (jQuery(this).is(':checked')) {
         jQuery('.maybe-disable').prop('disabled', true);
       } else {
         jQuery('.maybe-disable').prop('disabled', false);
       }
     });
 
-    elem.find('input.featured').on('change', function() {
-      if(jQuery(this).is(':checked')) {
+    elem.find('input.featured').on('change', function () {
+      if (jQuery(this).is(':checked')) {
         elem.find('input.featured').not(this).prop('checked', false);
       }
     });
