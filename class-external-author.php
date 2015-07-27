@@ -44,7 +44,7 @@ class External_Author {
 
 			// author name and remove author button
 			echo '<input class="text maybe-disable" type="text" name="' . $id_attr . '" id="' . $id_attr . '" value="'
-			     . esc_attr( $author['name'] ) . '" size="25" />';
+				 . esc_attr( $author['name'] ) . '" size="25" />';
 			echo '<input type="button" class="button remove-author maybe-disable" value="X"/>';
 			echo '</div>';
 
@@ -54,7 +54,7 @@ class External_Author {
 			_e( 'DCI Number' );
 			echo '</label>';
 			echo '<input class="text maybe-disable" type="number" min="0" name="' . $id_attr . '" id="' . $id_attr . '" value="' .
-			     esc_attr( $author['dci'] ) . '" size="25" />';
+				 esc_attr( $author['dci'] ) . '" size="25" />';
 			echo '</div>';
 
 			// use author image as featured image
@@ -65,7 +65,7 @@ class External_Author {
 				$checked = ' checked="checked"';
 			}
 			echo '<input class="featured maybe-disable" type="checkbox" name="external-authors-featured" id="' . $id_attr . '" value="' .
-			     esc_attr( $index ) . '"' . $checked . ' />';
+				 esc_attr( $index ) . '"' . $checked . ' />';
 			echo '<label for="' . $id_attr . '">';
 			_e( 'Featured Author' );
 			echo '</label>';
