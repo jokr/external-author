@@ -1,26 +1,32 @@
 #external-author-meta-box label {
-    display: inline-block;
-    min-width: 75px;
+	display: inline-block;
+	min-width: 85px;
+	line-height: 25px;
 }
 
 #external-author-meta-box input.text {
-    width: 125px;
+	width: 125px;
+}
+
+#external-author-meta-box input.featured {
+	margin: 5px 43px 0 0;
+	float: right;
 }
 
 .external-author {
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .button.remove-author {
-    margin-left: 10px;
+	margin-left: 10px;
 }
 
-.no-author-field{
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #d3d3d3;
+.no-author-field {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #d3d3d3;
 }
 
 #no-author {
-    margin-right: 10px;
+	margin-right: 10px;
 }
