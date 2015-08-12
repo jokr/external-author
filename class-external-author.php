@@ -25,8 +25,8 @@ class External_Author {
 
 		wp_nonce_field( 'external_author_meta_box', 'external_author_meta_box_nonce' );
 
-		$authors   = get_post_meta( $post->ID, '_external_authors', true );
-		$featured  = get_post_meta( $post->ID, '_external_authors_featured', true );
+		$authors = get_post_meta( $post->ID, '_external_authors', true );
+		$featured = get_post_meta( $post->ID, '_external_authors_featured', true );
 		$no_author = get_post_meta( $post->ID, '_external_authors_no_author', true );
 
 		if ( empty( $authors ) ) {
@@ -43,8 +43,7 @@ class External_Author {
 			echo '</label>';
 
 			// author name and remove author button
-			echo '<input class="text maybe-disable" type="text" name="' . $id_attr . '" id="' . $id_attr . '" value="'
-				 . esc_attr( $author['name'] ) . '" size="25" />';
+			echo '<input class="text maybe-disable" type="text" name="' . $id_attr . '" id="' . $id_attr . '" value="' . esc_attr( $author['name'] ) . '" size="25" />';
 			echo '<input type="button" class="button remove-author maybe-disable" value="X"/>';
 			echo '</div>';
 
@@ -53,8 +52,7 @@ class External_Author {
 			echo '<div class="external-author-dci"><label for="' . $id_attr . '">';
 			_e( 'DCI Number' );
 			echo '</label>';
-			echo '<input class="text maybe-disable" type="number" min="0" name="' . $id_attr . '" id="' . $id_attr . '" value="' .
-				 esc_attr( $author['dci'] ) . '" size="25" />';
+			echo '<input class="text maybe-disable" type="number" min="0" name="' . $id_attr . '" id="' . $id_attr . '" value="' . esc_attr( $author['dci'] ) . '" size="25" />';
 			echo '</div>';
 
 			// use author image as featured image
@@ -64,8 +62,7 @@ class External_Author {
 			if ( $featured != null && $featured == $index ) {
 				$checked = ' checked="checked"';
 			}
-			echo '<input class="featured maybe-disable" type="checkbox" name="external-authors-featured" id="' . $id_attr . '" value="' .
-				 esc_attr( $index ) . '"' . $checked . ' />';
+			echo '<input class="featured maybe-disable" type="checkbox" name="external-authors-featured" id="' . $id_attr . '" value="' . esc_attr( $index ) . '"' . $checked . ' />';
 			echo '<label for="' . $id_attr . '">';
 			_e( 'Featured Author' );
 			echo '</label>';
@@ -103,7 +100,7 @@ class External_Author {
 			update_post_meta( $post_id, '_external_authors_no_author', $_POST['external-author-no-author'] === 'true' ? true : false );
 		} else if ( isset( $_POST['external-authors'] ) ) {
 			update_post_meta( $post_id, '_external_authors_no_author', false );
-			$authors  = $_POST['external-authors'];
+			$authors = $_POST['external-authors'];
 			$featured = null;
 			if ( isset( $_POST['external-authors-featured'] ) ) {
 				$featured = intval( $_POST['external-authors-featured'] );
